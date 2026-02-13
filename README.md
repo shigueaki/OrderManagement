@@ -2,6 +2,8 @@
 
 <img width="1547" height="601" alt="image" src="https://github.com/user-attachments/assets/da3d2efb-9733-430c-94d7-561207e6c3e7" />
 
+<img width="1547" height="693" alt="image" src="https://github.com/user-attachments/assets/ec503223-b5f6-4cc6-a96c-2eabad9d460b" />
+
 
 # 📦 Order Management System
 
