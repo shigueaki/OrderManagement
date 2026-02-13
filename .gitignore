@@ -1,0 +1,134 @@
+# ============================================
+# .NET / C#
+# ============================================
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+## Visual Studio / VS Code
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+[Tt]est[Rr]esult*/
+[Dd]ebugPublic/
+[Rr]eleases/
+*.pubxml
+*.publishproj
+
+## NuGet
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nupkg
+**/packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## .NET Core
+project.lock.json
+project.fragment.lock.json
+
+## Entity Framework Migrations - keep migrations but ignore snapshots cache
+# (We WANT migrations in the repo)
+
+# ============================================
+# Node.js / React / Frontend
+# ============================================
+
+## Dependencies
+frontend/node_modules/
+node_modules/
+
+## Build output
+frontend/dist/
+frontend/build/
+
+## Environment files (SENSITIVE DATA)
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+## Logs
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# ============================================
+# Sensitive Data / Environment
+# ============================================
+
+## Environment files
+.env
+.env.local
+.env.*.local
+!.env.example
+
+## App settings with secrets (keep templates)
+**/appsettings.Development.json
+**/appsettings.Production.json
+!**/appsettings.json
+
+## User secrets
+secrets.json
+
+# ============================================
+# Azure
+# ============================================
+.azure/
+
+# ============================================
+# OS Files
+# ============================================
+
+## Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+## macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+## Linux
+*~
+
+# ============================================
+# IDE
+# ============================================
+
+## JetBrains Rider
+.idea/
+*.sln.iml
+
+## VS Code (keep settings if needed)
+# .vscode/
+
+# ============================================
+# Logs
+# ============================================
+logs/
+*.log
+
+# ============================================
+# Docker (if used later)
+# ============================================
+docker-compose.override.yml
