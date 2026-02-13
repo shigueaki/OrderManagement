@@ -43,5 +43,15 @@ This system allows users to **create**, **list**, and **view orders**. When an o
 
 <img width="356" height="259" alt="image" src="https://github.com/user-attachments/assets/f5327110-e490-490c-9f46-026e9240d6f2" />
 
+---
+
+### Core Features
+
+    ✅ Create Orders — Form with validation
+    ✅ List Orders — Responsive table with status badges
+    ✅ View Order Details — Full details with status history timeline
+    ✅ Real-time Updates — SignalR WebSocket notifications
+    ✅ Async Processing — Worker processes orders via Service Bus
+
 
 
