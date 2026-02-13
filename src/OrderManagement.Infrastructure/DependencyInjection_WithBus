@@ -1,0 +1,52 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using OrderManagement.Application.Interfaces;
+using OrderManagement.Application.Services;
+using OrderManagement.Domain.Interfaces;
+using OrderManagement.Infrastructure.Messaging;
+using OrderManagement.Infrastructure.Persistence;
+using OrderManagement.Infrastructure.Repositories;
+
+namespace OrderManagement.Infrastructure;
+
+public static class DependencyInjection_WithBus
+{
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    {
+        // Database
+        var connectionString = configuration.GetConnectionString("DefaultConnection")
+            ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+        services.AddDbContext<AppDbContext>(options =>
+            options.UseNpgsql(connectionString, npgsqlOptions =>
+            {
+                npgsqlOptions.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName);
+                npgsqlOptions.EnableRetryOnFailure(3);
+            }));
+
+        // Repositories
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<IOrderRepository, OrderRepository>();
+        services.AddScoped<IOutboxRepository, OutboxRepository>();
+
+        // Services
+        services.AddScoped<IOrderService, OrderService>();
+        services.AddScoped<IOrderProcessor, OrderProcessor>();
+
+        // Messaging
+        services.AddSingleton<IMessagePublisher, ServiceBusPublisher>();
+
+        // Outbox Processor (background service)
+        services.AddHostedService<OutboxProcessor>();
+
+        return services;
+    }
+
+    public static async Task ApplyMigrationsAsync(IServiceProvider serviceProvider)
+    {
+        using var scope = serviceProvider.CreateScope();
+        var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        await context.Database.MigrateAsync();
+    }
+}
