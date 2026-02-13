@@ -33,3 +33,15 @@ A full-stack order management system with real-time updates, built as a technica
 This system allows users to **create**, **list**, and **view orders**. When an order is created, a message is published to **Azure Service Bus** using the **Outbox Pattern** for transactional reliability. A background **Worker** consumes messages, processes orders, and updates their status in real-time via **SignalR WebSockets**.
 
 ### Order Status Flow
+┌─────────┐     ┌────────────┐     ┌───────────┐ ┌──────────┐ ┌──────────┐ ┌───────────┐
+│ Pending │ ──→ │ Processing │ ──→ │ Completed │ │ (create) │ │ (worker) │ │(worker+5s)│ 
+└─────────┘     └────────────┘     └───────────┘ └──────────┘ └──────────┘ └───────────┘
+
+---
+
+## 🛠 Tech Stack
+
+<img width="356" height="259" alt="image" src="https://github.com/user-attachments/assets/f5327110-e490-490c-9f46-026e9240d6f2" />
+
+
+
