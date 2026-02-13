@@ -1,5 +1,8 @@
 <img width="1546" height="519" alt="image" src="https://github.com/user-attachments/assets/693bf02a-85f6-43b3-b17f-ac8143162e15" />
 
+<img width="1547" height="601" alt="image" src="https://github.com/user-attachments/assets/da3d2efb-9733-430c-94d7-561207e6c3e7" />
+
+
 # 📦 Order Management System
 
 A full-stack order management system with real-time updates, built as a technical challenge showcasing modern software architecture patterns.
